@@ -114,6 +114,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>chayma</finalName>
 	</build>
 
 </project>
