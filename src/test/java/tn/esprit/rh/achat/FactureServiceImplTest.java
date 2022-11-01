@@ -26,12 +26,12 @@ import tn.esprit.rh.achat.services.FactureServiceImpl;
 import tn.esprit.rh.achat.services.IFactureService;
 @Slf4j
 
-@SpringBootTest()
+@SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 class FactureServiceImplTest {
-@Autowired
-IFactureService ifact;
+//@Autowired
+//IFactureService ifact;
 @Mock
 FactureRepository us;
 @InjectMocks
