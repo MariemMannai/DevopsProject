@@ -65,7 +65,7 @@ public void testRetrieveCategorieProduit() {
 	Facture facture = new Facture(1L,200,200,new Date(),new Date(),true,null , null,null);
 
 Mockito.when(us.findById(1L)).thenReturn(Optional.of(facture));
-fact.retrieveFacture(1L);
+//fact.retrieveFacture(1L);
 Assertions.assertNotNull(facture);
 
 
