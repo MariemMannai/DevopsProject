@@ -12,7 +12,7 @@ services:
      - devops
      
   spring-boot:
-    image: mariemmannai/achat-back
+    image: mariemmannai/achat-back:26
     container_name: springBack
     ports:
       - 8089:8089
