@@ -4,7 +4,7 @@ services:
     image: mysql
     container_name: mysql
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ALLOW_EMPTY_PASSWORD: null
       MYSQL_DATABASE: AchatDataBase   
     ports:
       - 3307:3307
