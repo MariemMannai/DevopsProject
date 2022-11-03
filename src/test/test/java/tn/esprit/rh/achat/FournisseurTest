@@ -1,0 +1,78 @@
+package tn.esprit.rh.achat;
+
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import tn.esprit.rh.achat.entities.Fournisseur;
+import tn.esprit.rh.achat.repositories.FournisseurRepository;
+import tn.esprit.rh.achat.services.FournisseurServiceImpl;
+
+
+
+
+
+
+
+
+@SpringBootTest
+@TestMethodOrder(OrderAnnotation.class)
+@ExtendWith(MockitoExtension.class)
+
+public class FournisseurTest {
+
+@Mock
+FournisseurRepository categorieRepository;
+
+@InjectMocks
+FournisseurServiceImpl categorieService;
+
+
+@Test
+public void AjouterFournisseur()
+{
+
+Fournisseur fournisseur = new Fournisseur(2L, "F1", "F2", null, null, null, null);
+fournisseur.setIdFournisseur(2L);
+
+categorieService.addFournisseur(fournisseur);
+verify(categorieRepository, times(1)).save(fournisseur);
+
+}
+
+
+
+
+
+@Test
+public void SupprimerFournisseur(){
+
+Fournisseur f = new Fournisseur(2L, "F1", "F2", null, null, null, null);
+Mockito.lenient().when(categorieRepository.findById(f.getIdFournisseur())).thenReturn(Optional.of(f));
+
+categorieService.deleteFournisseur(2L);
+
+
+
+}
+
+}
