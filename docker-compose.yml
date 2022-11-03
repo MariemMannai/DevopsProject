@@ -2,7 +2,7 @@ version: '3'
 services:
   database:
     image: mysql
-    container_name: mysql_test
+    container_name: mysqlTest
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: null
       MYSQL_DATABASE: AchatDataBase   
@@ -13,7 +13,7 @@ services:
      
   spring-boot:
     image: mariemmannai/achat-back:26
-    container_name: springBack
+    container_name: springBackTest
     ports:
       - 8089:8089
     depends_on:
@@ -23,7 +23,7 @@ services:
     restart: on-failure     
   angular:
     image: mariemmannai/achat-front
-    container_name: Angularfront
+    container_name: AngularfrontTest
     ports: 
       - 80:80
     depends_on:
