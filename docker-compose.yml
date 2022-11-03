@@ -1,0 +1,35 @@
+version: '3'
+services:
+  database:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: AchatDataBase   
+    ports:
+      - 3307:3307
+    networks:
+     - devops
+     
+  spring-boot:
+    image: bfzayneb/alpine
+    container_name: springBack
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - devops 
+    restart: on-failure     
+  angular:
+    image: mariemmannai/alpine
+    container_name: Angularfront
+    ports: 
+      - 80:80
+    depends_on:
+      - spring-boot
+    networks:
+      - devops
+  
+networks:
+  devops:
