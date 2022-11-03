@@ -2,7 +2,7 @@ version: '3'
 services:
   database:
     image: mysql
-    container_name: mysql:2
+    container_name: mysql_ex
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: null
       MYSQL_DATABASE: AchatDataBase   
