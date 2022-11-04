@@ -1,35 +1,25 @@
-version:  '3'
-services:
-  db:
+--- 
+services: 
+  db: 
+    container_name: mysqlAchat
+    environment: 
+      MYSQL_ALLOW_EMPTY_PASSWORD: ~
+      MYSQL_DATABASE: dbAchat
+    expose: 
+      - "3306"
     image: mysql
-    restart: always
-     container_name: mysqlAchat
-    environment:
-      MYSQL_DATABASE: 'dbAchat'
-      # So you don't have to use root, but you can if you like
-      # You can use whatever password you like
-     MYSQL_ALLOW_EMPTY_PASSWORD: yes
-      
-    ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
-      # Where our data will be persisted
-    volumes:
-      - my-db:/var/lib/mysql
-
- spring-boot:
-    image: rouamaknin/spring-achat
+    ports: 
+      - "3307:3307"
+    volumes: 
+      - "my-db:/var/lib/mysql"
+  spring-boot: 
     container_name: springAchat
-    ports:
-      - 8089:8089
-    depends_on:
+    depends_on: 
       - database
-    networks:
-      - projectdevops 
-    restart: on-failure     
-# Names our volume
-volumes:
-  my-db:
+    image: rouamaknin/spring-achat
+    networks: 
+      - projectdevops
+    ports: 
+      - "8089:8089"
+    restart: on-failure
+version: "3.3"
