@@ -17,7 +17,7 @@ services:
     volumes:
       - my-db:/var/lib/mysql
   spring-boot:
-    image: rouamaknin/spring-achat
+    image: rouamaknin/spring-achat:43
     container_name: springAchat
     ports:
       - 8089:8089
