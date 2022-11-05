@@ -12,7 +12,7 @@ services:
      - devops
      
   spring-boot:
-    image: mariemmannai/achat:1.0
+    image: amal178/achat:1.0
     container_name: springBack
     ports:
       - 8089:8089
@@ -21,15 +21,6 @@ services:
     networks:
       - devops 
     restart: on-failure     
-  angular:
-    image: mariemmannai/front
-    container_name: Angularfront
-    ports: 
-      - 80:80
-    depends_on:
-      - spring-boot
-    networks:
-      - devops
   
 networks:
   devops:
