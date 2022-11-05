@@ -20,7 +20,7 @@ services:
     ports:
       - 8089:8089
     depends_on:
-      - database
+      - db
     networks:
       - projectdevops  
     restart: on-failure
