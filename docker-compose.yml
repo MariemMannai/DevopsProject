@@ -25,6 +25,6 @@ services:
       - projectdevops  
     restart: on-failure
 volumes:
-  my-db:
+   my-db:
  
   
