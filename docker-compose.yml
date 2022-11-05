@@ -8,6 +8,8 @@ services:
       MYSQL_DATABASE: dbAchat   
     ports:
       - 3307:3307
+    networks:
+      - projectdevops  
     expose:
       # Opens port 3306 on the container
       - '3306'
@@ -27,6 +29,6 @@ services:
 volumes:
    my-db:
 networks:
-   devops:
+   projectdevops:
  
   
