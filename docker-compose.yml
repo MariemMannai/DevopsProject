@@ -1,25 +1,28 @@
---- 
-services: 
-  db: 
-    container_name: mysqlAchat
-    environment: 
-      MYSQL_ALLOW_EMPTY_PASSWORD: ~
-      MYSQL_DATABASE: dbAchat
-    expose: 
-      - "3306"
+version: '3.3'
+services:
+  db:
     image: mysql
-    ports: 
-      - "3307:3307"
-    volumes: 
-      - "my-db:/var/lib/mysql"
-  spring-boot: 
-    container_name: springAchat
-    depends_on: 
-      - database
+    container_name: mysqlAchat
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: null
+      MYSQL_DATABASE: dbAchat   
+    ports:
+      - 3307:3307
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+  spring-boot:
     image: rouamaknin/spring-achat
-    networks: 
-      - projectdevops
-    ports: 
-      - "8089:8089"
+    container_name: springAchat
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - projectdevops  
     restart: on-failure
-version: "3.3"
+ 
+  
