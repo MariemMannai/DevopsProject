@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: marye
-Build-Jdk: 17.0.4.1
+Built-By: Euromov
+Build-Jdk: 15.0.2
 Implementation-Title: achat
 Implementation-Version: 1.0
 Implementation-Vendor-Id: tn.esprit.rh
