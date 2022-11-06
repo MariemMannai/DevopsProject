@@ -3,9 +3,6 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import tn.esprit.achat.model.ProduitConverter;
-import tn.esprit.achat.model.ProduitModel;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
@@ -18,7 +15,7 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProduitServiceImpl implements IProduitService {
-     ProduitConverter customerConverter;
+
 	@Autowired
 	ProduitRepository produitRepository;
 	@Autowired
@@ -28,7 +25,7 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public List<Produit> retrieveAllProduits() {
-		List<Produit> produits = produitRepository.findAll();
+		List<Produit> produits = (List<Produit>) produitRepository.findAll();
 		for (Produit produit : produits) {
 			log.info(" Produit : " + produit);
 		}
@@ -49,10 +46,9 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public Produit updateProduit(Produit produit) {
-	return 	produitRepository.save(produit);
-		
-		}
+	public Produit updateProduit(Produit p) {
+		return produitRepository.save(p);
+	}
 
 	@Override
 	public Produit retrieveProduit(Long produitId) {
@@ -65,15 +61,10 @@ public class ProduitServiceImpl implements IProduitService {
 	public void assignProduitToStock(Long idProduit, Long idStock) {
 		Produit produit = produitRepository.findById(idProduit).orElse(null);
 		Stock stock = stockRepository.findById(idStock).orElse(null);
-        if (produit !=null) {
 		produit.setStock(stock);
-		produitRepository.save(produit);}
+		produitRepository.save(produit);
 
 	}
-	@Override
-	public ProduitModel saveProduit(ProduitModel produitModel) {
-		  Produit customer = customerConverter.convertDtoToEntity(produitModel);
-	        customer = produitRepository.save(customer);
-	        return customerConverter.convertEntityToDto(customer);
 
-}}
+
+}

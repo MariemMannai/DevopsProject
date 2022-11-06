@@ -3,8 +3,6 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import tn.esprit.achat.model.CategorieProduitModel;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
 
@@ -17,14 +15,13 @@ public class CategorieProduitController {
 
 	@Autowired
 	ICategorieProduitService categorieProduitService;
-
 	
 	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-all-categorieProduit
 	@GetMapping("/retrieve-all-categorieProduit")
 	@ResponseBody
 	public List<CategorieProduit> getCategorieProduit() {
-	
-		return categorieProduitService.retrieveAllCategorieProduits();
+		List<CategorieProduit> list = categorieProduitService.retrieveAllCategorieProduits();
+		return list;
 	}
 
 	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-categorieProduit/8
@@ -37,12 +34,12 @@ public class CategorieProduitController {
 	// http://localhost:8089/SpringMVC/categorieProduit/add-categorieProduit
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
-	public CategorieProduitModel addCategorieProduit(@RequestBody CategorieProduitModel cp) {
-		
-		return categorieProduitService.saveCategorieProduit(cp);
+	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
+		CategorieProduit categorieProduit = categorieProduitService.addCategorieProduit(cp);
+		return categorieProduit;
 	}
 
-	
+	// http://localhost:8089/SpringMVC/categorieProduit/remove-categorieProduit/{categorieProduit-id}
 	@DeleteMapping("/remove-categorieProduit/{categorieProduit-id}")
 	@ResponseBody
 	public void removeCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
@@ -52,8 +49,8 @@ public class CategorieProduitController {
 	// http://localhost:8089/SpringMVC/categorieProduit/modify-categorieProduit
 	@PutMapping("/modify-categorieProduit")
 	@ResponseBody
-	public CategorieProduitModel modifyCategorieProduit(@RequestBody CategorieProduitModel categorieProduit) {
-		return categorieProduitService.saveCategorieProduit(categorieProduit);
+	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit categorieProduit) {
+		return categorieProduitService.updateCategorieProduit(categorieProduit);
 	}
 
 	

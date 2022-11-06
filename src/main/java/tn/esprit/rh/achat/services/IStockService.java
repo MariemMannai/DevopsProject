@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.StockModel;
 import tn.esprit.rh.achat.entities.Stock;
 
 import java.util.List;
@@ -18,5 +17,4 @@ public interface IStockService {
 	Stock retrieveStock(Long id);
 
 	String retrieveStatusStock();
-	public StockModel saveStock(StockModel stockModel);
 }

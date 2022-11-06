@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.CategorieProduitModel;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 
 import java.util.List;
@@ -17,6 +16,5 @@ public interface ICategorieProduitService {
 	CategorieProduit updateCategorieProduit(CategorieProduit cp);
 
 	CategorieProduit retrieveCategorieProduit(Long id);
-	public CategorieProduitModel saveCategorieProduit(CategorieProduitModel categorieProduitModel);
 
 }

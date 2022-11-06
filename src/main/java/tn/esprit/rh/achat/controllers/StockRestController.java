@@ -4,8 +4,6 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import tn.esprit.achat.model.StockModel;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.services.IStockService;
 
@@ -14,7 +12,7 @@ import java.util.List;
 @RestController
 @Api(tags = "Gestion des stocks")
 @RequestMapping("/stock")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class StockRestController {
 
 	@Autowired
@@ -24,8 +22,8 @@ public class StockRestController {
 	@GetMapping("/retrieve-all-stocks")
 	@ResponseBody
 	public List<Stock> getStocks() {
-	
-		return stockService.retrieveAllStocks();
+		List<Stock> list = stockService.retrieveAllStocks();
+		return list;
 	}
 
 	// http://localhost:8089/SpringMVC/stock/retrieve-stock/8
@@ -38,11 +36,12 @@ public class StockRestController {
 	// http://localhost:8089/SpringMVC/stock/add-stock
 	@PostMapping("/add-stock")
 	@ResponseBody
-	public StockModel addStock(@RequestBody StockModel s) {
-		return stockService.saveStock(s);
+	public Stock addStock(@RequestBody Stock s) {
+		Stock stock = stockService.addStock(s);
+		return stock;
 	}
 
-	
+	// http://localhost:8089/SpringMVC/stock/remove-stock/{stock-id}
 	@DeleteMapping("/remove-stock/{stock-id}")
 	@ResponseBody
 	public void removeStock(@PathVariable("stock-id") Long stockId) {
@@ -52,8 +51,8 @@ public class StockRestController {
 	// http://localhost:8089/SpringMVC/stock/modify-stock
 	@PutMapping("/modify-stock")
 	@ResponseBody
-	public StockModel modifyStock(@RequestBody StockModel stock) {
-		return stockService.saveStock(stock);
+	public Stock modifyStock(@RequestBody Stock stock) {
+		return stockService.updateStock(stock);
 	}
 
 	/*
@@ -68,7 +67,8 @@ public class StockRestController {
 	//@Scheduled(cron = "*/60 * * * * *")
 	//@GetMapping("/retrieveStatusStock")
 //	@ResponseBody
-
-
+//	public void retrieveStatusStock() {
+//		stockService.retrieveStatusStock();
+//	}
 
 }

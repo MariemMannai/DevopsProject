@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.FactureModel;
 import tn.esprit.rh.achat.entities.Facture;
 
 import java.util.Date;
@@ -20,7 +19,5 @@ public interface IFactureService {
 	void assignOperateurToFacture(Long idOperateur, Long idFacture);
 
 	float pourcentageRecouvrement(Date startDate, Date endDate);
-	public FactureModel saveFacture(FactureModel factureModel);
-
 
 }

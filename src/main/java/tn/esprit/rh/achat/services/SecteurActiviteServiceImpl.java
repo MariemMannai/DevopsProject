@@ -2,9 +2,6 @@ package tn.esprit.rh.achat.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import tn.esprit.achat.model.SecteurConverter;
-import tn.esprit.achat.model.SecteurModel;
 import tn.esprit.rh.achat.entities.SecteurActivite;
 import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
 
@@ -12,8 +9,7 @@ import java.util.List;
 
 @Service
 public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
-	
-	SecteurConverter customerConverter;
+
 	@Autowired
 	SecteurActiviteRepository secteurActiviteRepository;
 	@Override
@@ -35,23 +31,14 @@ public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
 
 	@Override
 	public SecteurActivite updateSecteurActivite(SecteurActivite sa) {
-		
-		return secteurActiviteRepository.save(sa);
+		secteurActiviteRepository.save(sa);
+		return sa;
 	}
 
 	@Override
 	public SecteurActivite retrieveSecteurActivite(Long id) {
-		
-		return secteurActiviteRepository.findById(id).orElse(null);
+		SecteurActivite secteurActivite = secteurActiviteRepository.findById(id).orElse(null);
+		return secteurActivite;
 	}
-
-	@Override
-	public SecteurModel saveSecteur(SecteurModel secteurModel) {
-		SecteurActivite customer = customerConverter.convertDtoToEntity(secteurModel);
-        customer = secteurActiviteRepository.save(customer);
-        return customerConverter.convertEntityToDto(customer);
-		
-	}
-	
 
 }

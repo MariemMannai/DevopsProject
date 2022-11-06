@@ -3,8 +3,6 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import tn.esprit.achat.model.SecteurModel;
 import tn.esprit.rh.achat.entities.SecteurActivite;
 import tn.esprit.rh.achat.services.ISecteurActiviteService;
 
@@ -13,7 +11,7 @@ import java.util.List;
 @RestController
 @Api(tags = "Gestion des secteurs activites")
 @RequestMapping("/secteurActivite")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class SecteurActiviteController {
 
 	@Autowired
@@ -23,8 +21,8 @@ public class SecteurActiviteController {
 	@GetMapping("/retrieve-all-secteurActivite")
 	@ResponseBody
 	public List<SecteurActivite> getSecteurActivite() {
-		
-		return  secteurActiviteService.retrieveAllSecteurActivite();
+		List<SecteurActivite> list = secteurActiviteService.retrieveAllSecteurActivite();
+		return list;
 	}
 
 	// http://localhost:8089/SpringMVC/secteurActivite/retrieve-secteurActivite/8
@@ -37,12 +35,12 @@ public class SecteurActiviteController {
 	// http://localhost:8089/SpringMVC/secteurActivite/add-secteurActivite
 	@PostMapping("/add-secteurActivite")
 	@ResponseBody
-	public SecteurModel addSecteurActivite(@RequestBody SecteurModel sa) {
-	
-		return secteurActiviteService.saveSecteur(sa);
+	public SecteurActivite addSecteurActivite(@RequestBody SecteurActivite sa) {
+		SecteurActivite secteurActivite = secteurActiviteService.addSecteurActivite(sa);
+		return secteurActivite;
 	}
 
-	
+	// http://localhost:8089/SpringMVC/secteurActivite/remove-secteurActivite/{secteurActivite-id}
 	@DeleteMapping("/remove-secteurActivite/{secteurActivite-id}")
 	@ResponseBody
 	public void removeSecteurActivite(@PathVariable("secteurActivite-id") Long secteurActiviteId) {
@@ -52,8 +50,8 @@ public class SecteurActiviteController {
 	// http://localhost:8089/SpringMVC/secteurActivite/modify-secteurActivite
 	@PutMapping("/modify-secteurActivite")
 	@ResponseBody
-	public SecteurModel modifySecteurActivite(@RequestBody SecteurModel secteurActivite) {
-		return secteurActiviteService.saveSecteur(secteurActivite);
+	public SecteurActivite modifySecteurActivite(@RequestBody SecteurActivite secteurActivite) {
+		return secteurActiviteService.updateSecteurActivite(secteurActivite);
 	}
 
 	

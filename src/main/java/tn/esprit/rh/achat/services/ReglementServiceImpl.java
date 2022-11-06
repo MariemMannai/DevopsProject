@@ -2,9 +2,6 @@ package tn.esprit.rh.achat.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import tn.esprit.achat.model.ReglementConverter;
-import tn.esprit.achat.model.ReglementModel;
 import tn.esprit.rh.achat.entities.Reglement;
 import tn.esprit.rh.achat.repositories.FactureRepository;
 import tn.esprit.rh.achat.repositories.ReglementRepository;
@@ -14,8 +11,6 @@ import java.util.List;
 
 @Service
 public class ReglementServiceImpl implements IReglementService {
-	
-	ReglementConverter customerConverter;
 
 	@Autowired
 	FactureRepository factureRepository;
@@ -34,28 +29,24 @@ public class ReglementServiceImpl implements IReglementService {
 
 	@Override
 	public Reglement retrieveReglement(Long id) {
-	
+		Reglement reglement = reglementRepository.findById(id).orElse(null);
 		
-		return reglementRepository.findById(id).orElse(null);
+		return reglement;
 	}
 
 	@Override
 	public List<Reglement> retrieveReglementByFacture(Long idFacture) {
-		return reglementRepository.retrieveReglementByFacture(idFacture);
-				
+		List<Reglement> reglements= reglementRepository.retrieveReglementByFacture(idFacture);
+		return reglements;
+		
+//		ou bien(Sans JPQL)
+//		Facture f= factureRepository.findById(idFacture).get();
+//		return (List<Reglement>) f.getReglements();
 	}
 
 	@Override
 	public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
 		return reglementRepository.getChiffreAffaireEntreDeuxDate( startDate, endDate);
-	}
-
-	@Override
-	public ReglementModel saveReglement(ReglementModel reglementModel) {
-		Reglement customer = customerConverter.convertDtoToEntity(reglementModel);
-        customer = reglementRepository.save(customer);
-        return customerConverter.convertEntityToDto(customer);
-		
 	}
 
 }

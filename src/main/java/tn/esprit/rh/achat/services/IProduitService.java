@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.ProduitModel;
 import tn.esprit.rh.achat.entities.Produit;
 
 import java.util.List;
@@ -13,11 +12,10 @@ public interface IProduitService {
 
 	void deleteProduit(Long id);
 
-	Produit updateProduit(Produit produit);
+	Produit updateProduit(Produit p);
 
 	Produit retrieveProduit(Long id);
 
 	void assignProduitToStock(Long idProduit, Long idStock);
-	public ProduitModel saveProduit(ProduitModel produitModel);
 
 }

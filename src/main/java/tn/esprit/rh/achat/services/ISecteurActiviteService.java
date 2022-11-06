@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.SecteurModel;
 import tn.esprit.rh.achat.entities.SecteurActivite;
 
 import java.util.List;
@@ -16,7 +15,5 @@ public interface ISecteurActiviteService {
 	SecteurActivite updateSecteurActivite(SecteurActivite sa);
 
 	SecteurActivite retrieveSecteurActivite(Long id);
-	public SecteurModel saveSecteur(SecteurModel secteurModel);
-
 
 }
