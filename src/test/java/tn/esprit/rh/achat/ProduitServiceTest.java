@@ -51,7 +51,7 @@ public class ProduitServiceTest {
 	@InjectMocks
 	ProduitServiceImpl produitService;
 	
-	
+	/*
 	@Test
 	public void createProduitTest() throws Exception
 	{
@@ -165,7 +165,6 @@ public class ProduitServiceTest {
 	        System.out.println("---------------------------------------Update TEST :O !-----------------------------");
 	    }
 	   
-	   */
 	   
 	   
 	   
