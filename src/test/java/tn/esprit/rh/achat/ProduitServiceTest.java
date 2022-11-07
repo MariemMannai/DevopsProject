@@ -33,7 +33,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+//import org.mockito.junit.jupiter.MockitoExtension;
 
 
 import java.util.Date;
@@ -42,7 +43,8 @@ import java.util.Date;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
+//@ExtendWith(MockitoExtension.class)
 public class ProduitServiceTest {
 	
 	@Mock
