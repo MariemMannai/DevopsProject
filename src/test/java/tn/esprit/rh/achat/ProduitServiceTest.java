@@ -69,7 +69,7 @@ public class ProduitServiceTest {
 	System.out.println("Success : product created");
 	}
 
-	*/
+	
 	@Test
 	 void RetrieveProduitTest() throws ParseException
 	{
@@ -92,7 +92,7 @@ public class ProduitServiceTest {
 	System.out.println(" ---------------------------------------produitService works------------------------------ ");
 
 	}
-	/*
+	
 	@Test
     void testRetrieveProduitById() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -119,9 +119,9 @@ public class ProduitServiceTest {
 	        Mockito.verify(produitRepository, Mockito.times(1)).deleteById(p.getIdProduit());
 	        System.out.println("--------------------------------------- Delete produit test works ------------------------------ ");
 	    	}
-	*/
 	
-	/*   
+	
+	   
 	   @Test
 	    public void updateProduit() throws ParseException {
 		   SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -188,6 +188,36 @@ public class ProduitServiceTest {
 			
 			 System.out.println("---------------------------------------Update TEST :O !-----------------------------");
 		}
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	*/   
+	   
+	   
+	   
+	   
+	@Test
+	public void createProduitTest() throws Exception
+	{
+	
+	}
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	   
 	   
 	   
