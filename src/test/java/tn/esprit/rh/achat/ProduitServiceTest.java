@@ -92,7 +92,7 @@ public class ProduitServiceTest {
 	System.out.println(" ---------------------------------------produitService works------------------------------ ");
 
 	}
-	
+	/*
 	@Test
     void testRetrieveProduitById() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -119,7 +119,7 @@ public class ProduitServiceTest {
 	        Mockito.verify(produitRepository, Mockito.times(1)).deleteById(p.getIdProduit());
 	        System.out.println("--------------------------------------- Delete produit test works ------------------------------ ");
 	    	}
-	
+	*/
 	
 	/*   
 	   @Test
