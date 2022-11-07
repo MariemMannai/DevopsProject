@@ -51,7 +51,7 @@ public class ProduitServiceTest {
 	@InjectMocks
 	ProduitServiceImpl produitService;
 	
-	/*
+	
 	@Test
 	public void createProduitTest() throws Exception
 	{
@@ -69,7 +69,7 @@ public class ProduitServiceTest {
 	System.out.println("Success : product created");
 	}
 
-	
+	/*
 	@Test
 	 void RetrieveProduitTest() throws ParseException
 	{
