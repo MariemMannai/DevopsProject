@@ -55,6 +55,7 @@ public class ProduitServiceTest {
 	@Test
 	public void createProduitTest() throws Exception
 	{
+		/*
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	Date dateCreation = dateFormat.parse("30/09/2021");
 	Date dateDerniereModification = dateFormat.parse("30/02/2022");
@@ -67,6 +68,7 @@ public class ProduitServiceTest {
 	System.out.println(produit1);
 	//Assertions.assertNotNull(p.getIdProduit());
 	System.out.println("Success : product created");
+	*/
 	}
 
 	/*
