@@ -15,7 +15,7 @@ services:
      - tpachato:/var/lib/mysql
 
   spring_app:
-    image: ./
+    build: ./
     restart: on-failure
     environment:
      - spring.datasource.url=jdbc:mysql://mysqldb:3306/tpachato?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
