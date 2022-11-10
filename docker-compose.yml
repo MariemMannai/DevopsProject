@@ -14,7 +14,7 @@ services:
     volumes:
      - tpachato:/var/lib/mysql
 
-  app:
+  spring_app:
     image: ./
     restart: on-failure
     environment:
