@@ -96,7 +96,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 <repository>
 <id>deploymentRepo</id>
 <name>Nexus Repository</name>
-<url>http://192.168.1.9:8081/repository/maven-snapshots/</url>
+<url>http://192.168.0.101:8081/repository/maven-snapshots/</url>
 </repository>
 </distributionManagement>
 </project>
