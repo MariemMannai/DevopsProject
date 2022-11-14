@@ -48,7 +48,7 @@ FactureRepository factureRepository;
 FactureServiceImpl factureService;
 
 @Test
-public void getAllCategorieProduitTest()
+public void getFactures()
 {
 List<Facture> list = new ArrayList<Facture>() {
 
